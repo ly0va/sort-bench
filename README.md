@@ -31,7 +31,8 @@ make
 
 2. For each language, arrays are generated randomly, with a fixed seed.
 
-3. Sequential fallback was implemented (parallel implementations use sequential ones, once array size is small enough, 2<sup>13</sup> here). Without it, programs struggle take much, MUCH longer to finish (since there are so many threads), and in the case of Go, freeze my computer and do not finish at all.
+3. Sequential fallback was implemented, meaning that parallel implementations use sequential ones, once array size is small enough, 2<sup>13</sup> here. 
+   Without it, programs take much, MUCH longer to finish (since they spawn so many threads), and in the case of Go, freeze my computer and do not finish at all.
 
 4. CPU: Intel i5-3320M (4 cores) @ 3.3GHz
 
