@@ -30,8 +30,8 @@ void par_merge_sort(const vec& arr, vec& out) {
         int mid = arr.size() / 2;
         vec left_half, right_half;
         std::thread left(
-            par_merge_sort, 
-            vec(arr.begin(), arr.begin()+mid), 
+            par_merge_sort,
+            vec(arr.begin(), arr.begin()+mid),
             std::ref(left_half)
         );
         par_merge_sort(vec(arr.begin()+mid, arr.end()), right_half);
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     double builtin_multi = bench(len, [](vec& v) {
         __gnu_parallel::sort(v.begin(), v.end());
     });
-    std::cout << "Multi-threaded:   " << multi         << "s\n" 
+    std::cout << "Multi-threaded:   " << multi         << "s\n"
               << "Single-threaded:  " << single        << "s\n"
               << "Builtin sort:     " << builtin       << "s\n"
               << "Builtin parallel: " << builtin_multi << "s\n";

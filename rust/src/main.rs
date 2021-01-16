@@ -5,7 +5,7 @@ use rayon::prelude::*;
 
 const LENGTH: usize = 100_000_000;
 
-fn bench<F>(size: usize, sorter: F) -> Duration 
+fn bench<F>(size: usize, sorter: F) -> Duration
     where F: Fn(&mut [i32]) {
     let seed = [18; 32];
     let mut rng: StdRng = SeedableRng::from_seed(seed);
@@ -44,7 +44,7 @@ fn join_merge_sort(arr: &[i32]) -> Vec<i32> {
     } else {
         let mid = arr.len() / 2;
         let (left_half, right_half) = rayon::join(
-            || join_merge_sort(&arr[mid..]), 
+            || join_merge_sort(&arr[mid..]),
             || join_merge_sort(&arr[..mid])
         );
         merge(&left_half, &right_half)

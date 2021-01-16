@@ -18,7 +18,7 @@ Dependencies:
 - go
 
 ```bash
-git clone https://github.com/lyova-potyomkin/sort-bench.git
+git clone https://github.com/ly0va/sort-bench.git
 cd sort-bench
 make
 ```
